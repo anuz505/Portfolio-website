@@ -1,8 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'futura': ['Futura', 'sans-serif'],
+        'bebas': ['Bebas Neue', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };
