@@ -1,12 +1,12 @@
-import React from 'react'
-import SplashCursor from './SplashCursor'
+import React from "react";
+import SplashCursor from "./SplashCursor";
 
 const Cursor = () => {
   return (
     <div>
-      <SplashCursor/>
+      <SplashCursor />
     </div>
-  )
-}
+  );
+};
 
-export default Cursor
+export default Cursor;

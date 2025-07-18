@@ -15,14 +15,8 @@ export default function About() {
         <SplitText
           text="ORIGIN"
           className="origin-title gradient-text"
-          delay={100}
-          duration={0.6}
-          ease="power3.out"
-          splitType="chars"
-          from={{ opacity: 0, y: 40 }}
-          to={{ opacity: 1, y: 0 }}
-          threshold={0.1}
-          onLetterAnimationComplete={handleAnimationComplete}
+          duration={0.8}
+          delay={0.2}
         />
       </div>
 
@@ -39,7 +33,7 @@ export default function About() {
               containerWidth="100%"
               imageHeight="120%"
               imageWidth="100%"
-              rotateAmplitude={5}
+              rotateAmplitude={1.5}
               scaleOnHover={1.05}
               showMobileWarning={false}
               showTooltip={false}

@@ -14,7 +14,7 @@ export default function Projects() {
         opacity: 1,
         y: 0,
         transition: {
-          duration: shouldReduceMotion ? 0.2 : 0.8,
+          duration: shouldReduceMotion ? 0.2 : 0.6,
           ease: [0.25, 0.1, 0.25, 1],
         },
       },
@@ -29,8 +29,8 @@ export default function Projects() {
         opacity: 1,
         x: 0,
         transition: {
-          duration: shouldReduceMotion ? 0.2 : 1,
-          delay: shouldReduceMotion ? 0 : 0.3,
+          duration: shouldReduceMotion ? 0.2 : 0.7,
+          delay: shouldReduceMotion ? 0 : 0.2,
           ease: [0.25, 0.1, 0.25, 1],
         },
       },
@@ -50,9 +50,9 @@ export default function Projects() {
         x: 0,
         scale: 1,
         transition: {
-          duration: shouldReduceMotion ? 0.2 : 0.7,
+          duration: shouldReduceMotion ? 0.2 : 0.5,
           ease: [0.16, 1, 0.3, 1],
-          scale: { duration: shouldReduceMotion ? 0.2 : 0.6 },
+          scale: { duration: shouldReduceMotion ? 0.2 : 0.4 },
         },
       },
       exit: {
@@ -60,7 +60,7 @@ export default function Projects() {
         x: shouldReduceMotion ? 0 : -100,
         scale: shouldReduceMotion ? 1 : 0.95,
         transition: {
-          duration: shouldReduceMotion ? 0.1 : 0.4,
+          duration: shouldReduceMotion ? 0.1 : 0.3,
           ease: [0.16, 1, 0.3, 1],
         },
       },
@@ -82,18 +82,18 @@ export default function Projects() {
 
   return (
     <motion.div
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 font-sans"
+      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:py-12 py-6 font-sans"
       variants={containerVariants}
       initial="initial"
       animate="animate"
     >
       <motion.h1
-        className="text-5xl font-bold mb-16 uppercase font-bebas tracking-wider"
+        className="text-5xl font-bold mb-8 lg: uppercase font-bebas tracking-wider"
         variants={titleVariants}
         initial="initial"
         animate="animate"
       >
-        Creations
+        Projects
       </motion.h1>
 
       <AnimatePresence mode="wait">
