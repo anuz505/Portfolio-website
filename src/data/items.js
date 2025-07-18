@@ -1,33 +1,3 @@
-const items = [
-  {
-    image: "/myphoto.jpg",
-    link: "https://google.com/",
-    title: "Item 1",
-    description: "This is pretty cool, right?",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
-    link: "https://google.com/",
-    title: "Item 2",
-    description: "This is pretty cool, right?",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=500&h=500&fit=crop&crop=center&auto=format&q=80",
-    link: "https://google.com/",
-    title: "Item 3",
-    description: "This is pretty cool, right?",
-  },
-  {
-    image:
-      "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=600&h=600&fit=crop&crop=center&auto=format&q=80",
-    link: "https://google.com/",
-    title: "Item 4",
-    description: "This is pretty cool, right?",
-  },
-];
-
 const projectsData = [
   {
     id: 1,
@@ -40,50 +10,47 @@ const projectsData = [
     mainImage: "/LiftingAss.png",
     link: "https://github.com/prabinb50/lifting_assisstant",
     type: "Streamlit Application",
-    moreShots: [],
   },
   {
     id: 2,
     number: "02",
-    name: "Deep Learning Hackathon - Image Segmentation for Autonomous Vehicles",
+    name: "BinHero: Smart Waste Disposal Tracker",
     description:
-      "This repository contains the code for the winning model of the Deep Learning Hackathon focused on image segmentation for autonomous vehicles using supervised learning techniques. Our model leverages advanced neural network architectures to achieve state-of-the-art performance.",
+      "A real-time smart waste disposal monitoring system that uses computer vision and object tracking to verify trash dumping actions and promote eco-conscious behavior. Users earn points for responsible disposal, encouraging participation through a gamified reward system.",
     technicalDetails:
-      "Built with Python, TensorFlow/PyTorch, implemented U-Net and DeepLab architectures, achieved 95%+ IoU score on validation dataset.",
-    mainImage: "/projects/image-segmentation.jpg",
-    link: "https://github.com/anuz505/deep-learning-hackathon",
-    type: "Jupyter Notebook",
-    moreShots: [],
+      "Developed using Python, Flask, YOLOv11, DeepSORT, and OpenCV. The system supports real-time video inference through a server-side architecture and tracks disposal actions using motion verification. Mobile app integration enables real-time data transfer and user engagement.",
+    mainImage: "/binhero1.png",
+    link: "https://github.com/anuz505/Capstone-BinHERO-Detection-Model",
+    type: "AI-Powered Solution",
   },
   {
     id: 3,
     number: "03",
+    name: "Deep Learning Hackathon - Image Segmentation for Autonomous Vehicles",
+    description:
+      "This repository contains the code for the winning model of the Deep Learning Hackathon focused on image segmentation for autonomous vehicles using supervised learning techniques. Our model leverages advanced neural network architectures to achieve state-of-the-art performance.",
+    technicalDetails:
+      "Built with Python, TensorFlow/PyTorch, implemented U-Net architecture, achieved 95%+ IoU score on validation dataset.",
+    mainImage: "/segmentation.jpg",
+    link: "https://github.com/anuz505/deep-learning-hackathon",
+    type: "Jupyter Notebook",
+  },
+  {
+    id: 4,
+    number: "04",
     name: "Receipt Reader",
     description:
       "This repository contains a simple receipt reader that utilizes tesseract to extract text data and gemini api to generate the json data. A practical application for digitizing and processing receipt information automatically.",
     technicalDetails:
       "Python, Tesseract OCR, Gemini API integration, JSON data processing, image preprocessing with OpenCV.",
-    mainImage: "/projects/receipt-reader.jpg",
+    mainImage: "/reciept_reader.png",
     link: "https://github.com/anuz505/Reciept-Reader",
     type: "Jupyter Notebook",
-    moreShots: [],
   },
+
   {
-    id: 4,
-    number: "04",
-    name: "Micrograd",
-    description:
-      "Andrej Karpathy's micrograd from scratch. This helped me understand Neural Networks better than ever before. A minimal implementation of automatic differentiation and neural network training.",
-    technicalDetails:
-      "Pure Python implementation, automatic differentiation engine, backpropagation from scratch, educational neural network framework.",
-    mainImage: "/projects/micrograd.jpg",
-    link: "https://github.com/anuz505/micrograd",
-    type: "Jupyter Notebook",
-    moreShots: [],
-  },
-  {
-    id: 5,
-    number: "05",
+    id: 6,
+    number: "06",
     name: "Sentence Completion using Word2Vec and LSTM",
     description:
       "I built this project to understand sequence-to-one learning, how to use pre-trained embeddings in NLP tasks, and how to train LSTM networks for language modeling. Implements advanced NLP techniques for text completion.",
@@ -92,11 +59,10 @@ const projectsData = [
     mainImage: "/Sentence_completion.png",
     link: "https://github.com/anuz505/Sentence-Completion-using-Word2Vec-and-LSTM",
     type: "Jupyter Notebook",
-    moreShots: [],
   },
   {
-    id: 6,
-    number: "06",
+    id: 7,
+    number: "07",
     name: "RNN from Scratch",
     description:
       "Implementation of Recurrent Neural Networks from scratch to understand the fundamentals of sequence modeling and temporal data processing. Built without using high-level frameworks.",
@@ -105,21 +71,19 @@ const projectsData = [
     mainImage: "/RNN.webp",
     link: "https://github.com/anuz505/RNN-from-scratch",
     type: "Jupyter Notebook",
-    moreShots: [],
   },
   {
-    id: 7,
-    number: "07",
+    id: 8,
+    number: "08",
     name: "English to French Translation - seq2seq LSTM",
     description:
       "A sequence-to-sequence model using LSTM networks for English to French translation. Implements encoder-decoder architecture with attention mechanisms for neural machine translation.",
     technicalDetails:
       "Seq2seq architecture, LSTM encoder-decoder, attention mechanism, TensorFlow/Keras, machine translation, multilingual NLP.",
-    mainImage: "/projects/translation.jpg",
+    mainImage: "/translate.webp",
     link: "https://github.com/anuz505/English-to-French-Translation-seq2seq-LSTM",
     type: "Jupyter Notebook",
-    moreShots: [],
   },
 ];
 
-export { items, projectsData };
+export { projectsData };

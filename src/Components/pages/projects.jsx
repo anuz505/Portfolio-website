@@ -229,7 +229,7 @@ export default function Projects() {
             }}
           >
             <motion.div
-              className="bg-gray-600 w-full aspect-video overflow-hidden rounded-lg"
+              className="bg-white w-full aspect-video overflow-hidden rounded-lg relative"
               whileHover={
                 shouldReduceMotion
                   ? {}
@@ -245,8 +245,8 @@ export default function Projects() {
               <img
                 src={project.mainImage}
                 alt={project.name}
-                className={`w-full h-full object-cover transition-transform duration-700 ease-out ${
-                  shouldReduceMotion ? "" : "hover:scale-110"
+                className={`w-full h-full object-contain transition-transform duration-700 ease-out ${
+                  shouldReduceMotion ? "" : "hover:scale-105"
                 }`}
               />
             </motion.div>

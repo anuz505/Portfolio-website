@@ -2,7 +2,6 @@ import "./App.css";
 import Navbar from "./Components/Navbar/navbar.jsx";
 import Waves from "./Components/wave/Waves.jsx";
 import About from "./Components/pages/About.jsx";
-import TextPressureSection from "./Components/section.jsx";
 import Section_creative from "./Components/section_creative.jsx";
 import Grid from "./Components/Grid/Grid.jsx";
 import Quote from "./Components/Quote/Quote.jsx";
@@ -13,7 +12,7 @@ import Projects from "./Components/pages/projects.jsx";
 function App() {
   return (
     <div className="overflow-hidden">
-      {/* <Cursor /> */}
+      <Cursor />
       <div className="container">
         <Navbar />
       </div>
