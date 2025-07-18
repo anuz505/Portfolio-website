@@ -220,8 +220,8 @@ function StepIndicator({
     currentStep === step
       ? "active"
       : currentStep < step
-        ? "inactive"
-        : "complete";
+      ? "inactive"
+      : "complete";
 
   const handleClick = () => {
     if (step !== currentStep && !disableStepIndicators) onClickStep(step);
@@ -257,7 +257,7 @@ function StepIndicator({
 
 function StepConnector({ isComplete }) {
   const lineVariants = {
-    incomplete: { width: 0, backgroundColor: "transparent" },
+    incomplete: { width: 0, backgroundColor: "rgba(82, 39, 255, 0)" },
     complete: { width: "100%", backgroundColor: "#5227FF" },
   };
 

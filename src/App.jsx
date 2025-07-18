@@ -17,7 +17,10 @@ function App() {
         <Navbar />
       </div>
 
-      <div className="wave-container w-full h-[350px] relative overflow-hidden">
+      <div
+        id="Home"
+        className="wave-container w-full h-[350px] relative overflow-hidden "
+      >
         <Waves />
       </div>
       <div>
@@ -37,7 +40,7 @@ function App() {
       </div>
       <Grid />
 
-      <div className="h-[40vh] sm:h-[70vh] lg:h-[40vh] pt-4 pb-0 px-4 sm:px-8 lg:px-16 flex flex-col justify-center">
+      <div className="h-[40vh] sm:h-[50vh] md:h-[25vh] lg:h-[40vh] pt-4 pb-0 px-4 sm:px-8 lg:px-16 flex flex-col justify-center">
         <h1
           style={{ fontFamily: "Bebas Neue, sans-serif" }}
           className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-center sm:text-left"
@@ -61,7 +64,7 @@ function App() {
         <Projects />
       </div>
 
-      <div id="contacts">
+      <div id="contacts" className="relative w-full min-h-screen">
         <Contact />
       </div>
     </div>

@@ -50,7 +50,7 @@ const FallingText = ({
             observer.disconnect();
           }
         },
-        { threshold: 0.1 },
+        { threshold: 0.1 }
       );
       observer.observe(containerRef.current);
       return () => observer.disconnect();
@@ -92,28 +92,28 @@ const FallingText = ({
       height + 25,
       width,
       50,
-      boundaryOptions,
+      boundaryOptions
     );
     const leftWall = Bodies.rectangle(
       -25,
       height / 2,
       50,
       height,
-      boundaryOptions,
+      boundaryOptions
     );
     const rightWall = Bodies.rectangle(
       width + 25,
       height / 2,
       50,
       height,
-      boundaryOptions,
+      boundaryOptions
     );
     const ceiling = Bodies.rectangle(
       width / 2,
       -25,
       width,
       50,
-      boundaryOptions,
+      boundaryOptions
     );
 
     const wordSpans = textRef.current.querySelectorAll("span");

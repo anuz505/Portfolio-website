@@ -88,7 +88,7 @@ export default function Projects() {
       animate="animate"
     >
       <motion.h1
-        className="text-5xl font-bold mb-8 lg: uppercase font-bebas tracking-wider"
+        className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 uppercase font-bebas tracking-wider"
         variants={titleVariants}
         initial="initial"
         animate="animate"
@@ -117,7 +117,7 @@ export default function Projects() {
             }}
           >
             <motion.h2
-              className="text-2xl mb-8"
+              className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8"
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -151,7 +151,7 @@ export default function Projects() {
             </motion.div>
 
             <motion.p
-              className="text-lg leading-relaxed mb-6"
+              className="text-base sm:text-lg leading-relaxed mb-4 sm:mb-6"
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -164,7 +164,7 @@ export default function Projects() {
             </motion.p>
 
             <motion.p
-              className="text-base text-gray-600 mb-8 leading-relaxed"
+              className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 leading-relaxed"
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -180,7 +180,7 @@ export default function Projects() {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-black hover:underline"
+              className="flex items-center gap-2 text-black hover:underline text-sm sm:text-base"
               initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{
@@ -255,7 +255,7 @@ export default function Projects() {
       </AnimatePresence>
 
       <motion.div
-        className="flex justify-between items-center mt-12"
+        className="flex justify-between items-center mt-8 sm:mt-12"
         initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -266,7 +266,7 @@ export default function Projects() {
       >
         <motion.button
           onClick={prevProject}
-          className="px-5 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-300"
+          className="px-3 py-1 sm:px-5 sm:py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-300 text-sm sm:text-base"
           whileHover={
             shouldReduceMotion
               ? {}
@@ -297,7 +297,7 @@ export default function Projects() {
           {projectsData.map((_, index) => (
             <motion.span
               key={index}
-              className={`w-3 h-3 rounded-full cursor-pointer transition-colors duration-300 ${
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer transition-colors duration-300 ${
                 index === currentProject ? "bg-black" : "bg-gray-300"
               }`}
               onClick={() => setCurrentProject(index)}
@@ -339,7 +339,7 @@ export default function Projects() {
 
         <motion.button
           onClick={nextProject}
-          className="px-5 py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-300"
+          className="px-3 py-1 sm:px-5 sm:py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-300 text-sm sm:text-base"
           whileHover={
             shouldReduceMotion
               ? {}

@@ -27,7 +27,13 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-gray-800 mr-5">Anuj</h1>
+            <h1
+              className="lg:text-4xl ml-10 sm:ml-5 sm: text-3xl font-bold text-gray-800 mr-5"
+              style={{ fontFamily: "Bebas Neue, sans-serif" }}
+              onClick={() => scrollToSection("Home")}
+            >
+              Anuj
+            </h1>
           </div>
 
           {/* Desktop Navigation */}
@@ -69,7 +75,7 @@ export default function Navbar() {
 
       {/* Mobile Navigation Dropdown */}
       <div
-        className={`md:hidden transition-all duration-300 ease-in-out ${
+        className={`md:hidden transition-all duration-300 ease-in-out sm:mr-20 ${
           isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
         } overflow-hidden`}
       >
