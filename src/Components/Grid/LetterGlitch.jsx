@@ -1,41 +1,66 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 
 const LetterGlitch = ({
-  glitchColors = ["#330000", "#1a0000", "#000000"], // Dark red/black shades
-  glitchSpeed = 150, // Decreased speed (increased millisecond delay)
+  glitchColors = ["#330000", "#1a0000", "#000000"], // Dark red/black shades for light mode
+  glitchSpeed = 300, // Increased interval for better performance
+  isDarkMode = false,
 }) => {
   const [displayText, setDisplayText] = useState("");
-  // Two separate words with 1cm gap between them and after
-  const word1 = "0i10i01i0i10i1";
-  const word2 = "////////////////";
-  const pattern = word1 + "|" + word2 + "|"; // Using | as separator to identify where to add gap
-  const repeatedPattern = pattern.repeat(6); // Repeat the pattern multiple times to fill the width
 
-  const glitchableChars = ["0", "1", "i"]; // Characters that can glitch (swap among themselves)
-  const fixedChar = "/"; // Character that remains fixed
-  const separatorChar = "|"; // Separator to create 1cm gap
+  // Memoize the pattern to avoid recalculation
+  const {
+    word1,
+    word2,
+    pattern,
+    repeatedPattern,
+    glitchableChars,
+    fixedChar,
+    separatorChar,
+  } = useMemo(() => {
+    const w1 = "0i10i01i0i10i1";
+    const w2 = "////////////////";
+    const pat = w1 + "|" + w2 + "|";
+    return {
+      word1: w1,
+      word2: w2,
+      pattern: pat,
+      repeatedPattern: pat.repeat(6),
+      glitchableChars: ["0", "1", "i"],
+      fixedChar: "/",
+      separatorChar: "|",
+    };
+  }, []);
 
-  const getRandomColor = () => {
-    return glitchColors[Math.floor(Math.random() * glitchColors.length)];
-  };
+  // Different color sets for light and dark modes
+  const currentColors = useMemo(() => {
+    const lightModeColors = ["#330000", "#1a0000", "#000000"];
+    const darkModeColors = ["#ffffff", "#e5e5e5", "#cccccc"];
+    return isDarkMode ? darkModeColors : lightModeColors;
+  }, [isDarkMode]);
+
+  // Memoize random color function
+  const getRandomColor = useCallback(() => {
+    return currentColors[Math.floor(Math.random() * currentColors.length)];
+  }, [currentColors]);
+
+  // Memoize the character array to avoid splitting on every render
+  const patternChars = useMemo(
+    () => repeatedPattern.split(""),
+    [repeatedPattern]
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Create glitched version of the repeated pattern
-      const glitchedText = repeatedPattern
-        .split("")
+      // Use the memoized character array and process more efficiently
+      const glitchedText = patternChars
         .map((char) => {
           if (glitchableChars.includes(char)) {
             // If it's a glitchable character, randomly pick one from the glitchable set
-            return glitchableChars[Math.floor(Math.random() * glitchableChars.length)];
-          } else if (char === fixedChar) {
-            // If it's the fixed character, keep it as is
-            return fixedChar;
-          } else if (char === separatorChar) {
-            // Keep separator as is
-            return separatorChar;
+            return glitchableChars[
+              Math.floor(Math.random() * glitchableChars.length)
+            ];
           }
-          // For any other character, keep it as is
+          // For fixed chars and separators, keep as is
           return char;
         })
         .join("");
@@ -44,19 +69,25 @@ const LetterGlitch = ({
     }, glitchSpeed);
 
     return () => clearInterval(interval);
-  }, [glitchSpeed, repeatedPattern]); // `repeatedPattern` is a dependency because it's used inside the effect
+  }, [glitchSpeed, patternChars, glitchableChars]);
 
   return (
-    <div className="bg-[#fff] overflow-hidden whitespace-nowrap py-2 w-screen h-auto flex justify-center items-center border-2 border-black">
+    <div
+      className={`overflow-hidden whitespace-nowrap py-2 w-screen h-auto flex justify-center items-center -ml-1 border-2 transition-colors duration-300 ${
+        isDarkMode ? "bg-black border-white" : "bg-white border-black"
+      }`}
+    >
       <div className="inline-block">
         <span className="font-mono text-[10px] tracking-widest">
           {displayText.split("").map((char, index) => (
             <span
               key={index}
               style={{ color: getRandomColor() }}
-              className={`inline-block transition-colors duration-75 ${char === '|' ? 'ml-[1cm]' : ''}`}
+              className={`inline-block transition-colors duration-75 ${
+                char === "|" ? "ml-[1cm]" : ""
+              }`}
             >
-              {char === '|' ? '' : char}
+              {char === "|" ? "" : char}
             </span>
           ))}
         </span>

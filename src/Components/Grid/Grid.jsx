@@ -1,11 +1,11 @@
-import LetterGlitch from "./LetterGlitch"
+import LetterGlitch from "./LetterGlitch";
 
-const Grid = () => {
+const Grid = ({ isDarkMode = false }) => {
   return (
     <div>
-      <LetterGlitch glitchSpeed={50} />
+      <LetterGlitch glitchSpeed={50} isDarkMode={isDarkMode} />
     </div>
-  )
-}
+  );
+};
 
-export default Grid
+export default Grid;

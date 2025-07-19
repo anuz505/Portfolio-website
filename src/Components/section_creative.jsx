@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import "./section-css.css";
 
-export default function Section_creative() {
+export default function Section_creative({ isDarkMode = false }) {
   const containerRef = useRef(null);
   const creativeRef = useRef(null);
   const developerRef = useRef(null);
@@ -128,20 +128,34 @@ export default function Section_creative() {
   return (
     <div
       ref={containerRef}
-      className="w-full py-20 flex flex-col justify-start items-start px-8"
+      className={`w-full py-20 flex flex-col justify-start items-start px-8 transition-colors duration-300 ${
+        isDarkMode ? "bg-black text-white" : "bg-white text-black"
+      }`}
     >
       <div className="flex items-baseline gap-8">
         <h1
           ref={creativeRef}
-          className="Creative cursor-pointer gradient-text-dark"
+          className={`Creative cursor-pointer ${
+            isDarkMode ? "text-white" : "gradient-text-dark"
+          }`}
         >
           CREATIVE
         </h1>
-        <h2 ref={developerRef} className="developer cursor-pointer">
+        <h2
+          ref={developerRef}
+          className={`developer cursor-pointer ${
+            isDarkMode ? "text-white" : "text-black"
+          }`}
+        >
           DEVELOPER &&
         </h2>
       </div>
-      <h1 ref={enthusiastRef} className="Creative cursor-pointer">
+      <h1
+        ref={enthusiastRef}
+        className={`Creative cursor-pointer ${
+          isDarkMode ? "text-white" : "text-black"
+        }`}
+      >
         AI ENTHUSIAST
       </h1>
     </div>

@@ -9,9 +9,17 @@ import FallingText from "./Components/FallingText/FallingText.jsx";
 import Contact from "./Components/Contact/Contact.jsx";
 import Cursor from "./Components/Cursor/Cursor.jsx";
 import Projects from "./Components/pages/projects.jsx";
-function App() {
+import { DarkModeProvider, useDarkMode } from "./contexts/DarkModeContext.jsx";
+
+function AppContent() {
+  const { isDarkMode } = useDarkMode();
+
   return (
-    <div className="overflow-hidden">
+    <div
+      className={`overflow-hidden transition-colors duration-300 ${
+        isDarkMode ? "bg-black text-white" : "bg-white text-black"
+      }`}
+    >
       <Cursor />
       <div className="container">
         <Navbar />
@@ -21,29 +29,35 @@ function App() {
         id="Home"
         className="wave-container w-full h-[350px] relative overflow-hidden "
       >
-        <Waves />
+        <Waves isDarkMode={isDarkMode} />
       </div>
       <div>
-        <Grid />
+        <Grid isDarkMode={isDarkMode} />
 
-        <Section_creative />
-        <Grid />
+        <Section_creative isDarkMode={isDarkMode} />
+        <Grid isDarkMode={isDarkMode} />
       </div>
 
       <div>
-        <Quote />
+        <Quote isDarkMode={isDarkMode} />
       </div>
-      <Grid />
+      <Grid isDarkMode={isDarkMode} />
 
       <div className="about" id="about">
-        <About />
+        <About isDarkMode={isDarkMode} />
       </div>
-      <Grid />
+      <Grid isDarkMode={isDarkMode} />
 
-      <div className="h-[40vh] sm:h-[50vh] md:h-[25vh] lg:h-[40vh] pt-4 pb-0 px-4 sm:px-8 lg:px-16 flex flex-col justify-center">
+      <div
+        className={`h-[40vh] sm:h-[50vh] md:h-[25vh] lg:h-[40vh] pt-4 pb-0 px-4 sm:px-8 lg:px-16 flex flex-col justify-center transition-colors duration-300 ${
+          isDarkMode ? "bg-black" : "bg-white"
+        }`}
+      >
         <h1
           style={{ fontFamily: "Bebas Neue, sans-serif" }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-center sm:text-left"
+          className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-center sm:text-left transition-colors duration-300 ${
+            isDarkMode ? "text-white" : "text-black"
+          }`}
         >
           My Tech Stack
         </h1>
@@ -52,22 +66,31 @@ function App() {
           highlightWords={["React", "PyTorch", "OpenCV"]}
           highlightClass="highlighted"
           trigger="click"
-          backgroundColor="transparent"
+          backgroundColor={isDarkMode ? "#000000" : "transparent"}
           wireframes={false}
           gravity={0.56}
           fontSize="1rem"
           mouseConstraintStiffness={0.9}
+          isDarkMode={isDarkMode}
         />
       </div>
-      <Grid />
+      <Grid isDarkMode={isDarkMode} />
       <div className="projects" id="works">
-        <Projects />
+        <Projects isDarkMode={isDarkMode} />
       </div>
 
       <div id="contacts" className="relative w-full min-h-screen">
-        <Contact />
+        <Contact isDarkMode={isDarkMode} />
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <DarkModeProvider>
+      <AppContent />
+    </DarkModeProvider>
   );
 }
 

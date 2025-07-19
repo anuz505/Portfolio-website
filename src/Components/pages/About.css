@@ -15,6 +15,21 @@
   position: relative;
 }
 
+/* Dark mode gradient for ORIGIN title */
+.origin-title.gradient-text-dark {
+  background: linear-gradient(45deg, #fff 30%, #ccc 70%, #fff 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 100%;
+  animation: gradient-shift 8s ease infinite;
+  background-position: left center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  position: relative;
+}
+
 @keyframes gradient-shift {
   0%,
   100% {
@@ -26,7 +41,8 @@
 }
 
 /* Ensure gradient is inherited by child elements from SplitText */
-.origin-title.gradient-text * {
+.origin-title.gradient-text *,
+.origin-title.gradient-text-dark * {
   background: inherit;
   -webkit-background-clip: inherit;
   -webkit-text-fill-color: inherit;

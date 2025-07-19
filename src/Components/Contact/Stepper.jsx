@@ -16,6 +16,7 @@ export default function Stepper({
   nextButtonText = "Continue",
   disableStepIndicators = false,
   renderStepIndicator,
+  isDarkMode = false,
   ...rest
 }) {
   const [currentStep, setCurrentStep] = useState(initialStep);
@@ -81,6 +82,7 @@ export default function Stepper({
                     step={stepNumber}
                     disableStepIndicators={disableStepIndicators}
                     currentStep={currentStep}
+                    isDarkMode={isDarkMode}
                     onClickStep={(clicked) => {
                       setDirection(clicked > currentStep ? 1 : -1);
                       updateStep(clicked);
@@ -88,7 +90,10 @@ export default function Stepper({
                   />
                 )}
                 {isNotLastStep && (
-                  <StepConnector isComplete={currentStep > stepNumber} />
+                  <StepConnector
+                    isComplete={currentStep > stepNumber}
+                    isDarkMode={isDarkMode}
+                  />
                 )}
               </React.Fragment>
             );
@@ -114,7 +119,9 @@ export default function Stepper({
                   onClick={handleBack}
                   className={`duration-350 rounded px-2 py-1 transition ${
                     currentStep === 1
-                      ? "pointer-events-none opacity-50 text-neutral-400"
+                      ? "pointer-events-none opacity-50"
+                      : isDarkMode
+                      ? "text-gray-400 hover:text-gray-200"
                       : "text-neutral-400 hover:text-neutral-700"
                   }`}
                   {...backButtonProps}
@@ -124,7 +131,11 @@ export default function Stepper({
               )}
               <button
                 onClick={isLastStep ? handleComplete : handleNext}
-                className="duration-350 flex items-center justify-center rounded-full bg-green-500 py-1.5 px-3.5 font-medium tracking-tight text-white transition hover:bg-green-600 active:bg-green-700"
+                className={`duration-350 flex items-center justify-center rounded-full py-1.5 px-3.5 font-medium tracking-tight transition ${
+                  isDarkMode
+                    ? "bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800"
+                    : "bg-green-500 text-white hover:bg-green-600 active:bg-green-700"
+                }`}
                 {...nextButtonProps}
               >
                 {isLastStep ? "Complete" : nextButtonText}
@@ -215,6 +226,7 @@ function StepIndicator({
   currentStep,
   onClickStep,
   disableStepIndicators,
+  isDarkMode = false,
 }) {
   const status =
     currentStep === step
@@ -236,17 +248,35 @@ function StepIndicator({
     >
       <motion.div
         variants={{
-          inactive: { scale: 1, backgroundColor: "#222", color: "#a3a3a3" },
-          active: { scale: 1, backgroundColor: "#5227FF", color: "#5227FF" },
-          complete: { scale: 1, backgroundColor: "#5227FF", color: "#3b82f6" },
+          inactive: {
+            scale: 1,
+            backgroundColor: isDarkMode ? "#374151" : "#222",
+            color: isDarkMode ? "#9CA3AF" : "#a3a3a3",
+          },
+          active: {
+            scale: 1,
+            backgroundColor: isDarkMode ? "#3B82F6" : "#5227FF",
+            color: isDarkMode ? "#3B82F6" : "#5227FF",
+          },
+          complete: {
+            scale: 1,
+            backgroundColor: isDarkMode ? "#3B82F6" : "#5227FF",
+            color: isDarkMode ? "#3B82F6" : "#3b82f6",
+          },
         }}
         transition={{ duration: 0.3 }}
         className="flex h-8 w-8 items-center justify-center rounded-full font-semibold"
       >
         {status === "complete" ? (
-          <CheckIcon className="h-4 w-4 text-black" />
+          <CheckIcon
+            className={`h-4 w-4 ${isDarkMode ? "text-white" : "text-black"}`}
+          />
         ) : status === "active" ? (
-          <div className="h-3 w-3 rounded-full bg-[#060010]" />
+          <div
+            className={`h-3 w-3 rounded-full ${
+              isDarkMode ? "bg-white" : "bg-[#060010]"
+            }`}
+          />
         ) : (
           <span className="text-sm">{step}</span>
         )}
@@ -255,14 +285,21 @@ function StepIndicator({
   );
 }
 
-function StepConnector({ isComplete }) {
+function StepConnector({ isComplete, isDarkMode = false }) {
   const lineVariants = {
     incomplete: { width: 0, backgroundColor: "rgba(82, 39, 255, 0)" },
-    complete: { width: "100%", backgroundColor: "#5227FF" },
+    complete: {
+      width: "100%",
+      backgroundColor: isDarkMode ? "#3B82F6" : "#5227FF",
+    },
   };
 
   return (
-    <div className="relative mx-2 h-0.5 flex-1 overflow-hidden rounded bg-neutral-600">
+    <div
+      className={`relative mx-2 h-0.5 flex-1 overflow-hidden rounded ${
+        isDarkMode ? "bg-gray-600" : "bg-neutral-600"
+      }`}
+    >
       <motion.div
         className="absolute left-0 top-0 h-full"
         variants={lineVariants}

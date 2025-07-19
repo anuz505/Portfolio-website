@@ -10,6 +10,7 @@ const FallingText = ({
   gravity = 1,
   mouseConstraintStiffness = 0.2,
   fontSize = "1rem",
+  isDarkMode = false,
 }) => {
   const containerRef = useRef(null);
   const textRef = useRef(null);
@@ -24,9 +25,10 @@ const FallingText = ({
     const newHTML = words
       .map((word) => {
         const isHighlighted = highlightWords.some((hw) => word.startsWith(hw));
+        const textColor = isDarkMode ? "text-white" : "text-black";
         return `<span
           class="inline-block mx-[2px] select-none ${
-            isHighlighted ? "text-cyan-500 font-bold" : ""
+            isHighlighted ? "text-cyan-500 font-bold" : textColor
           }"
         >
           ${word}
@@ -35,7 +37,7 @@ const FallingText = ({
       .join(" ");
 
     textRef.current.innerHTML = newHTML;
-  }, [text, highlightWords]);
+  }, [text, highlightWords, isDarkMode]);
 
   useEffect(() => {
     if (trigger === "auto") {

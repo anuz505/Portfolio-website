@@ -2,7 +2,7 @@ import React, { useState, useMemo, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
 import { projectsData } from "../../data/items";
-export default function Projects() {
+export default function Projects({ isDarkMode = false }) {
   const [currentProject, setCurrentProject] = useState(0);
   const shouldReduceMotion = useReducedMotion();
 
@@ -82,13 +82,17 @@ export default function Projects() {
 
   return (
     <motion.div
-      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:py-12 py-6 font-sans"
+      className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:py-12 py-6 font-sans transition-colors duration-300 ${
+        isDarkMode ? "text-white" : "text-black"
+      }`}
       variants={containerVariants}
       initial="initial"
       animate="animate"
     >
       <motion.h1
-        className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 uppercase font-bebas tracking-wider"
+        className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 uppercase font-bebas tracking-wider ${
+          isDarkMode ? "text-white" : "text-black"
+        }`}
         variants={titleVariants}
         initial="initial"
         animate="animate"
@@ -117,7 +121,9 @@ export default function Projects() {
             }}
           >
             <motion.h2
-              className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8"
+              className={`text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 ${
+                isDarkMode ? "text-white" : "text-black"
+              }`}
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -144,7 +150,13 @@ export default function Projects() {
                 ease: shouldReduceMotion ? "easeOut" : [0.34, 1.56, 0.64, 1],
               }}
             >
-              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800">
+              <span
+                className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
+                  isDarkMode
+                    ? "bg-orange-900 text-orange-200"
+                    : "bg-orange-100 text-orange-800"
+                }`}
+              >
                 <span className="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
                 {project.type}
               </span>
@@ -164,7 +176,9 @@ export default function Projects() {
             </motion.p>
 
             <motion.p
-              className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8 leading-relaxed"
+              className={`text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed ${
+                isDarkMode ? "text-gray-300" : "text-gray-600"
+              }`}
               initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -266,7 +280,11 @@ export default function Projects() {
       >
         <motion.button
           onClick={prevProject}
-          className="px-3 py-1 sm:px-5 sm:py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-300 text-sm sm:text-base"
+          className={`px-3 py-1 sm:px-5 sm:py-2 rounded-full transition-colors duration-300 text-sm sm:text-base ${
+            isDarkMode
+              ? "bg-white text-black hover:bg-gray-300"
+              : "bg-black text-white hover:bg-gray-800"
+          }`}
           whileHover={
             shouldReduceMotion
               ? {}
@@ -298,7 +316,13 @@ export default function Projects() {
             <motion.span
               key={index}
               className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full cursor-pointer transition-colors duration-300 ${
-                index === currentProject ? "bg-black" : "bg-gray-300"
+                index === currentProject
+                  ? isDarkMode
+                    ? "bg-white"
+                    : "bg-black"
+                  : isDarkMode
+                  ? "bg-gray-600"
+                  : "bg-gray-300"
               }`}
               onClick={() => setCurrentProject(index)}
               whileHover={
@@ -339,7 +363,11 @@ export default function Projects() {
 
         <motion.button
           onClick={nextProject}
-          className="px-3 py-1 sm:px-5 sm:py-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors duration-300 text-sm sm:text-base"
+          className={`px-3 py-1 sm:px-5 sm:py-2 rounded-full transition-colors duration-300 text-sm sm:text-base ${
+            isDarkMode
+              ? "bg-white text-black hover:bg-gray-300"
+              : "bg-black text-white hover:bg-gray-800"
+          }`}
           whileHover={
             shouldReduceMotion
               ? {}

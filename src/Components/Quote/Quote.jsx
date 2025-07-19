@@ -1,9 +1,13 @@
 import ScrollFloat from "../pages/ScrollFloat";
 import "../../Components/pages/About.css";
 
-const Quote = () => {
+const Quote = ({ isDarkMode = false }) => {
   return (
-    <div className="w-full min-h-[70vh] sm:min-h-[60vh] flex items-center justify-center bg-white text-black">
+    <div
+      className={`w-full min-h-[70vh] sm:min-h-[60vh] flex items-center justify-center transition-colors duration-300 ${
+        isDarkMode ? "bg-black text-white" : "bg-white text-black"
+      }`}
+    >
       <div className="text-center max-w-5xl w-full px-4">
         <div style={{ fontFamily: "Bebas Neue, sans-serif" }}>
           <ScrollFloat
