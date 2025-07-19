@@ -28,12 +28,12 @@ export default function Navbar() {
         fontFamily: "Futura, -apple-system, BlinkMacSystemFont, sans-serif",
       }}
     >
-      <div className="max-w-7xl sm:px-6 lg:px-8 w-full">
-        <div className="flex justify-between items-center h-16">
+      <div className="px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16 w-full">
+        <div className="flex justify-between items-center h-16 max-w-screen-2xl mx-auto">
           {/* Logo */}
           <div className="flex-shrink-0">
             <h1
-              className={`lg:text-4xl ml-10 sm:ml-5 sm: text-3xl font-bold mr-5 transition-colors duration-300 ${
+              className={`text-2xl sm:text-3xl lg:text-4xl font-bold cursor-pointer transition-colors duration-300 ${
                 isDarkMode ? "text-white" : "text-gray-800"
               }`}
               style={{ fontFamily: "Bebas Neue, sans-serif" }}
@@ -45,10 +45,10 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+            <div className="flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
               <button
                 onClick={() => scrollToSection("about")}
-                className={`px-3 py-2 text-sm font-light transition-colors duration-300 ${
+                className={`px-3 py-2 text-sm lg:text-base font-light transition-colors duration-300 ${
                   isDarkMode
                     ? "text-gray-300 hover:text-white"
                     : "text-gray-700 hover:text-gray-900"
@@ -58,7 +58,7 @@ export default function Navbar() {
               </button>
               <button
                 onClick={() => scrollToSection("works")}
-                className={`px-3 py-2 text-sm font-light transition-colors duration-300 ${
+                className={`px-3 py-2 text-sm lg:text-base font-light transition-colors duration-300 ${
                   isDarkMode
                     ? "text-gray-300 hover:text-white"
                     : "text-gray-700 hover:text-gray-900"
@@ -68,7 +68,7 @@ export default function Navbar() {
               </button>
               <button
                 onClick={() => scrollToSection("contacts")}
-                className={`px-3 py-2 text-sm font-light transition-colors duration-300 ${
+                className={`px-3 py-2 text-sm lg:text-base font-light transition-colors duration-300 ${
                   isDarkMode
                     ? "text-gray-300 hover:text-white"
                     : "text-gray-700 hover:text-gray-900"
@@ -98,7 +98,7 @@ export default function Navbar() {
 
       {/* Mobile Navigation Dropdown */}
       <div
-        className={`md:hidden transition-all duration-300 ease-in-out mr-4 ${
+        className={`md:hidden transition-all duration-300 ease-in-out ${
           isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
         } overflow-hidden`}
       >
