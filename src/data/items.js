@@ -8,7 +8,7 @@ const projectsData = [
     technicalDetails:
       "Built with Python, Streamlit, MediaPipe, OpenCV, scikit-learn, and PyTorch. Features real-time pose estimation, exercise classification models (benchpress.pkl, squat.pkl, deadlift.pkl), audio feedback system using pygame, and advanced angle calculation algorithms.",
     mainImage: "/LiftingAss.png",
-    link: "https://github.com/prabinb50/lifting_assisstant",
+    link: "https://github.com/anuz505/RepRightAI",
     type: "Streamlit Application",
   },
 
