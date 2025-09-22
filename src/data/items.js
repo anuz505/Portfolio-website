@@ -2,6 +2,30 @@ const projectsData = [
   {
     id: 1,
     number: "01",
+    name: "Banter-Bot 🤖🎭",
+    description:
+      "A finetuned LLaMA 2 model designed for fun, witty one-liner roasts and banter. This conversational AI specializes in humor, sarcasm, and playful comebacks. Built using a custom dataset of roasts collected from Reddit and other community sources.",
+    technicalDetails:
+      "LLaMA 2 fine-tuning, Hugging Face transformers, custom humor dataset (humorchains-llama2-1k), parameter-efficient fine-tuning techniques, conversational AI, natural language generation.",
+    mainImage: "/banter_bot.png",
+    link: "https://github.com/anuz505/Banter-Bot-finetuned-LLM-model",
+    type: "Jupyter Notebook",
+  },
+  {
+    id: 2,
+    number: "02",
+    name: "Recipe AI - RAG Application",
+    description:
+      "A Recipe AI assistant powered by Retrieval-Augmented Generation (RAG) that helps users discover and learn about various dishes from around the world. Uses semantic search to find relevant recipe information and provides intelligent answers about cooking methods, ingredients, and culinary techniques.",
+    technicalDetails:
+      "Streamlit web interface, Pinecone vector database, sentence-transformers (all-MiniLM-L6-v2), Groq API for LLM integration, PostgreSQL for conversation storage, real-time monitoring with response times and relevance scores.",
+    mainImage: "/recipe_ai.png",
+    link: "https://github.com/anuz505/Recipe-AI-RAG-application-",
+    type: "Streamlit Application",
+  },
+  {
+    id: 3,
+    number: "03",
     name: "AI Posture Coach for Powerlifting",
     description:
       "A comprehensive real-time posture analysis application for powerlifting exercises using computer vision and machine learning. The system provides live feedback on exercise form for Bench Press, Squat, and Deadlift movements with both webcam analysis and video upload capabilities.",
@@ -11,22 +35,9 @@ const projectsData = [
     link: "https://github.com/anuz505/RepRightAI",
     type: "Streamlit Application",
   },
-
-  // {
-  //   id: 2,
-  //   number: "02",
-  //   name: "BinHero: Smart Waste Disposal Tracker",
-  //   description:
-  //     "A real-time smart waste disposal monitoring system that uses computer vision and object tracking to verify trash dumping actions and promote eco-conscious behavior. Users earn points for responsible disposal, encouraging participation through a gamified reward system.",
-  //   technicalDetails:
-  //     "Developed using Python, Flask, YOLOv11, DeepSORT, and OpenCV. The system supports real-time video inference through a server-side architecture and tracks disposal actions using motion verification. Mobile app integration enables real-time data transfer and user engagement.",
-  //   mainImage: "/binhero1.png",
-  //   link: "https://github.com/anuz505/Capstone-BinHERO-Detection-Model",
-  //   type: "AI-Powered Solution",
-  // },
   {
-    id: 2,
-    number: "02",
+    id: 4,
+    number: "04",
     name: "Deep Learning Hackathon - Image Segmentation for Autonomous Vehicles",
     description:
       "This repository contains the code for the winning model of the Deep Learning Hackathon focused on image segmentation for autonomous vehicles using supervised learning techniques. Our model leverages advanced neural network architectures to achieve state-of-the-art performance.",
@@ -37,8 +48,8 @@ const projectsData = [
     type: "Jupyter Notebook",
   },
   {
-    id: 3,
-    number: "03",
+    id: 5,
+    number: "05",
     name: "Receipt Reader",
     description:
       "This repository contains a simple receipt reader that utilizes tesseract to extract text data and gemini api to generate the json data. A practical application for digitizing and processing receipt information automatically.",
@@ -48,22 +59,21 @@ const projectsData = [
     link: "https://github.com/anuz505/Reciept-Reader",
     type: "Jupyter Notebook",
   },
-
   {
-    id: 4,
-    number: "04",
-    name: "Sentence Completion using Word2Vec and LSTM",
+    id: 6,
+    number: "06",
+    name: "Transformer Architecture Implementation",
     description:
-      "I built this project to understand sequence-to-one learning, how to use pre-trained embeddings in NLP tasks, and how to train LSTM networks for language modeling. Implements advanced NLP techniques for text completion.",
+      "A comprehensive implementation of the Transformer architecture from the groundbreaking 'Attention Is All You Need' paper. This project demonstrates the core components including multi-head self-attention, positional encoding, and feed-forward networks, built from scratch for educational purposes and deep understanding of modern NLP architectures.",
     technicalDetails:
-      "Word2Vec embeddings, LSTM neural networks, TensorFlow/Keras, sequence modeling, natural language processing.",
-    mainImage: "/Sentence_completion.png",
-    link: "https://github.com/anuz505/Sentence-Completion-using-Word2Vec-and-LSTM",
+      "PyTorch implementation, multi-head self-attention mechanism, positional encoding, layer normalization, feed-forward networks, encoder-decoder architecture, scaled dot-product attention, residual connections, custom dataset preprocessing, gradient clipping, learning rate scheduling.",
+    mainImage: "/attention_research_1.png",
+    link: "https://github.com/anuz505/Transformer-Implementation",
     type: "Jupyter Notebook",
   },
   {
-    id: 5,
-    number: "05",
+    id: 7,
+    number: "07",
     name: "RNN from Scratch",
     description:
       "Implementation of Recurrent Neural Networks from scratch to understand the fundamentals of sequence modeling and temporal data processing. Built without using high-level frameworks.",
@@ -71,18 +81,6 @@ const projectsData = [
       "Pure Python/NumPy implementation, vanilla RNN architecture, gradient computation, sequence processing, educational implementation.",
     mainImage: "/RNN.webp",
     link: "https://github.com/anuz505/RNN-from-scratch",
-    type: "Jupyter Notebook",
-  },
-  {
-    id: 6,
-    number: "06",
-    name: "English to French Translation - seq2seq LSTM",
-    description:
-      "A sequence-to-sequence model using LSTM networks for English to French translation. Implements encoder-decoder architecture with attention mechanisms for neural machine translation.",
-    technicalDetails:
-      "Seq2seq architecture, LSTM encoder-decoder, attention mechanism, TensorFlow/Keras, machine translation, multilingual NLP.",
-    mainImage: "/translate.webp",
-    link: "https://github.com/anuz505/English-to-French-Translation-seq2seq-LSTM",
     type: "Jupyter Notebook",
   },
 ];
