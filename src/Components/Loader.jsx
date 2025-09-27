@@ -1,6 +1,4 @@
 import React, { useEffect, useMemo, memo } from "react";
-import { Hatch } from "ldrs/react";
-import "ldrs/react/hatch.css";
 
 const Loader = memo(() => {
   const text = "Hello, I am Anuj.";
@@ -9,6 +7,11 @@ const Loader = memo(() => {
   const textChars = useMemo(() => text.split(""), [text]);
 
   useEffect(() => {
+    // Try to dynamically import ldrs hatch for web component
+    import("ldrs/hatch").catch(() => {
+      console.log("ldrs hatch not available, using CSS fallback");
+    });
+
     // Store original values for cleanup
     const originalBodyOverflow = document.body.style.overflow;
     const originalBodyHeight = document.body.style.height;
@@ -45,7 +48,12 @@ const Loader = memo(() => {
           </span>
         ))}
       </h1>
-      <Hatch size="28" stroke="4" speed="3.5" color="black" />
+
+      {/* ldrs web component - will fallback to CSS spinner if not loaded */}
+      <l-hatch size="28" stroke="4" speed="3.5" color="black"></l-hatch>
+
+      {/* CSS fallback spinner */}
+      <div className="css-fallback-spinner"></div>
 
       <style>{`
         .animate-appear {
@@ -66,6 +74,31 @@ const Loader = memo(() => {
             opacity: 1;
             transform: scale3d(1, 1, 1) translateY(0);
           }
+        }
+        
+        /* CSS fallback spinner styles */
+        .css-fallback-spinner {
+          width: 28px;
+          height: 28px;
+          border: 3px solid #f3f3f3;
+          border-top: 3px solid #000000;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+          display: none;
+        }
+        
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        
+        /* Show fallback spinner if ldrs component is not defined */
+        l-hatch:not(:defined) {
+          display: none;
+        }
+        
+        l-hatch:not(:defined) + .css-fallback-spinner {
+          display: block;
         }
       `}</style>
     </div>
