@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, memo } from "react";
 
 const Loader = memo(() => {
-  const text = "Hello, I am Anuj.";
+  const text = "Hey, I'm Anuj.";
 
   // Memoize the text splitting to avoid re-splitting on every render
   const textChars = useMemo(() => text.split(""), [text]);
