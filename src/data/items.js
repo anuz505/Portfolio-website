@@ -20,7 +20,7 @@ const projectsData = [
     technicalDetails:
       "MERN stack (MongoDB, Express.js, React, Node.js), Docker Compose, Nginx reverse proxy, JWT authentication, Mongoose ODM, RESTful API, multi-container architecture, separate admin and customer interfaces, cart management, protected routes.",
     mainImage: "/food-del.png",
-    link: "https://foof-del.vercel.app/",
+    link: "https://github.com/anuz505/Food-Delivery.git",
     type: "Web Application",
   },
   {
