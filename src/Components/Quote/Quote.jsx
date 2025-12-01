@@ -17,7 +17,7 @@ const Quote = ({ isDarkMode = false }) => {
             duration={0.8}
             threshold={0.3}
           >
-            " Still learning, still building...
+            " My work is driven by curiosity,
           </ScrollFloat>
 
           <ScrollFloat
@@ -27,7 +27,7 @@ const Quote = ({ isDarkMode = false }) => {
             duration={0.8}
             threshold={0.3}
           >
-            occasionally debugging for hours
+            crafted with intention,
           </ScrollFloat>
 
           <ScrollFloat
@@ -37,7 +37,7 @@ const Quote = ({ isDarkMode = false }) => {
             duration={0.8}
             threshold={0.3}
           >
-            because I missed a semicolon "
+            and refined through continuous growth."
           </ScrollFloat>
         </div>
       </div>
