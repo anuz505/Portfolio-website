@@ -59,21 +59,10 @@ const projectsData = [
     link: "https://github.com/anuz505/Reciept-Reader",
     type: "Web Application",
   },
+
   {
     id: 6,
     number: "06",
-    name: "Recipe AI",
-    description:
-      "A Recipe AI assistant powered by Retrieval-Augmented Generation (RAG) that helps users discover and learn about various dishes from around the world. Uses semantic search to find relevant recipe information and provides intelligent answers about cooking methods, ingredients, and culinary techniques.",
-    technicalDetails:
-      "Streamlit web interface, Pinecone vector database, sentence-transformers (all-MiniLM-L6-v2), Groq API for LLM integration, PostgreSQL for conversation storage, real-time monitoring with response times and relevance scores.",
-    mainImage: "/recipe_ai.png",
-    link: "https://github.com/anuz505/Recipe-AI-RAG-application-",
-    type: "Streamlit Application",
-  },
-  {
-    id: 7,
-    number: "07",
     name: "AI Posture Coach for Powerlifting",
     description:
       "A comprehensive real-time posture analysis application for powerlifting exercises using computer vision and machine learning. The system provides live feedback on exercise form for Bench Press, Squat, and Deadlift movements with both webcam analysis and video upload capabilities.",
@@ -85,8 +74,8 @@ const projectsData = [
   },
 
   {
-    id: 8,
-    number: "08",
+    id: 7,
+    number: "07",
     name: "Transformer Architecture Implementation",
     description:
       "A comprehensive implementation of the Transformer architecture from the groundbreaking 'Attention Is All You Need' paper. This project demonstrates the core components including multi-head self-attention, positional encoding, and feed-forward networks, built from scratch for educational purposes and deep understanding of modern NLP architectures.",
