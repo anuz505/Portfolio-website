@@ -62,7 +62,7 @@ const projectsData = [
   {
     id: 6,
     number: "06",
-    name: "AI Posture Coach for Powerlifting",
+    name: "Recipe AI",
     description:
       "A Recipe AI assistant powered by Retrieval-Augmented Generation (RAG) that helps users discover and learn about various dishes from around the world. Uses semantic search to find relevant recipe information and provides intelligent answers about cooking methods, ingredients, and culinary techniques.",
     technicalDetails:
