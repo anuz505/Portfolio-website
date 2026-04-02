@@ -88,7 +88,7 @@ function AppContent() {
             My Tech Stack
           </h1>
           <FallingText
-            text={`My tech stack spans Java, JavaScript, TypeScript, R, LaTeX · React, Redux, Tailwind CSS, GSAP, Express.js, Flask, AWS, Docker, Git, Postman,  MongoDB, MySQL, TensorFlow, PyTorch, Keras, Scikit-learn, OpenCV, Pandas, NumPy, Matplotlib, CUDA , Figma, Adobe Illustrator and Apache Spark.`}
+            text={`My tech stack includes R, Python, Java, Bash Script, TypeScript, LaTeX, AWS, Express.js, FastAPI, Flask, Next.js, Node.js, OpenCV, React, Redux, React Query, Socket.io, Jenkins, Nginx, MongoDB, PostgreSQL, MySQL, Prisma, Supabase, Redis, Figma, Keras, Matplotlib, NumPy, Pandas, TensorFlow, Scikit-learn, PyTorch, GitHub Actions, Git, GitHub, Postman, GraphQL, Django, and REST APIs.`}
             highlightWords={["React", "PyTorch", "OpenCV"]}
             highlightClass="highlighted"
             trigger="click"
